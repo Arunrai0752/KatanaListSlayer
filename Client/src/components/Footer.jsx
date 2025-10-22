@@ -9,7 +9,7 @@ export default function Footer() {
       links: [
         { name: "Features", href: "#features", icon: BarChart3 },
         { name: "How it Works", href: "#how-it-works", icon: Clock },
-        { name: "Analytics", href: "#analytics", icon: BarChart3 },
+        { name: "Analytics", href: "/analytics", icon: BarChart3 },
         { name: "Pricing", href: "#pricing", icon: null }
       ]
     },

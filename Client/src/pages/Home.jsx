@@ -7,6 +7,8 @@ import Comparision from '../components/Comparision'
 import Pricing from '../components/Pricing'
 import Testimonials from '../components/Testimonials'
 import About from '../components/About'
+import ScreenshotsSection from '../components/Screenshots'
+
 
 const Home = () => {
     return (
@@ -15,6 +17,7 @@ const Home = () => {
             <HowItWorksSection />
             <Features />
             <ProductUse />
+            <ScreenshotsSection/>
             <Comparision />
             <Pricing />
             <Testimonials />
