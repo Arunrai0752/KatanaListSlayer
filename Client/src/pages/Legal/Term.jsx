@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Shield, FileText, Lock, CreditCard, Ban, Server, AlertTriangle, Mail, Calendar } from "lucide-react";
+import { ChevronDown, Shield, FileText, Lock, CreditCard, Ban, Server, AlertTriangle, Mail, Calendar,Home } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 export default function Terms() {
+  const navigate = useNavigate()
   const [openSection, setOpenSection] = useState(null);
 
   const termsSections = [
@@ -134,16 +139,16 @@ export default function Terms() {
             <Shield className="w-5 h-5 text-[#00d4ff]" />
             <span className="text-sm font-semibold text-[#00d4ff]">Legal Documentation</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-white">Terms & </span>
             <span className="glow-text bg-gradient-to-r from-[#00d4ff] to-[#8b5cf6] bg-clip-text text-transparent">
               Conditions
             </span>
           </h1>
-          
+
           <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            Please read these terms carefully before using Katana List Slayer. 
+            Please read these terms carefully before using Katana List Slayer.
             By using our service, you agree to be bound by these terms.
           </p>
         </motion.div>
@@ -240,7 +245,7 @@ export default function Terms() {
                           </ul>
                         </div>
                       )}
-                      
+
                       {/* Special contact info for contact section */}
                       {section.id === 9 && (
                         <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-[#00d4ff]/10 to-[#8b5cf6]/10 border border-[#00d4ff]/20">
@@ -270,10 +275,10 @@ export default function Terms() {
         >
           <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-2">
             <Calendar className="w-4 h-4" />
-            <span>Last updated: {new Date().toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
+            <span>Last updated: {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
             })}</span>
           </div>
           <p className="text-gray-500 text-sm">
@@ -281,6 +286,15 @@ export default function Terms() {
           </p>
         </motion.div>
       </div>
+      <motion.button
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-red-600 to-orange-500 rounded-full shadow-2xl flex items-center justify-center border-2 border-white/20 hover:shadow-red-500/30 transition-all duration-300 group"
+        onClick={() => navigate("/")}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Home className="w-7 h-7 text-white group-hover:scale-110 transition-transform" />
+
+      </motion.button>
     </div>
   );
 }

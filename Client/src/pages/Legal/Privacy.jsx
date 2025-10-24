@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Shield, 
-  Lock, 
-  Database, 
-  Users, 
-  Eye, 
-  Cookie, 
-  Globe, 
-//   Child, 
-  Mail, 
+import {
+  Shield,
+  Lock,
+  Database,
+  Users,
+  Eye,
+  Cookie,
+  Globe,
+  Home,
+  Mail,
   Calendar,
   ChevronDown,
   CheckCircle,
@@ -18,11 +18,11 @@ import {
   Download,
   Bell
 } from "lucide-react";
-
 import { FaChildReaching } from "react-icons/fa6";
-
+import { useNavigate } from "react-router-dom";
 
 export default function Privacy() {
+  const navigate = useNavigate()
   const [openSection, setOpenSection] = useState(null);
 
   const privacySections = [
@@ -159,7 +159,7 @@ export default function Privacy() {
     {
       id: 9,
       title: "Children's Privacy",
-      icon: FaChildReaching ,
+      icon: FaChildReaching,
       content: "Our service is not intended for users under 18 years of age. We do not knowingly collect information from children. If we become aware of such collection, we will immediately delete the information."
     },
     {
@@ -232,14 +232,12 @@ export default function Privacy() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] py-20">
-      {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#00d4ff]/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#8b5cf6]/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -250,14 +248,14 @@ export default function Privacy() {
             <Lock className="w-5 h-5 text-[#00d4ff]" />
             <span className="text-sm font-semibold text-[#00d4ff]">Your Privacy Matters</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-white">Privacy </span>
             <span className="glow-text bg-gradient-to-r from-[#00d4ff] to-[#8b5cf6] bg-clip-text text-transparent">
               Policy
             </span>
           </h1>
-          
+
           <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8">
             We are committed to protecting your privacy and being transparent about how we handle your data.
           </p>
@@ -265,7 +263,6 @@ export default function Privacy() {
           <SecurityBadges />
         </motion.div>
 
-        {/* Privacy Sections */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -314,13 +311,11 @@ export default function Privacy() {
                     className="overflow-hidden"
                   >
                     <div className="px-8 pb-6 border-t border-gray-800 pt-6">
-                      {/* Render different content structures based on section type */}
                       {typeof section.content === 'string' ? (
                         <p className="text-gray-300 leading-relaxed text-lg">
                           {section.content}
                         </p>
                       ) : section.content.categories ? (
-                        // Information We Collect & Third-Party Sharing
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -342,7 +337,6 @@ export default function Privacy() {
                           </div>
                         </div>
                       ) : section.content.points ? (
-                        // How We Use Your Information
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -357,7 +351,6 @@ export default function Privacy() {
                           </ul>
                         </div>
                       ) : section.content.features ? (
-                        // Data Security
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -372,7 +365,6 @@ export default function Privacy() {
                           </div>
                         </div>
                       ) : section.content.retention ? (
-                        // Data Retention
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -392,7 +384,6 @@ export default function Privacy() {
                           </div>
                         </div>
                       ) : section.content.rights ? (
-                        // Your Rights
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -407,7 +398,6 @@ export default function Privacy() {
                           </div>
                         </div>
                       ) : section.content.cookies ? (
-                        // Cookies & Tracking
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -423,7 +413,6 @@ export default function Privacy() {
                           <p className="text-gray-400 text-sm">{section.content.note}</p>
                         </div>
                       ) : section.content.contacts ? (
-                        // Contact Information
                         <div>
                           <p className="text-gray-300 leading-relaxed text-lg mb-6">
                             {section.content.description}
@@ -447,7 +436,6 @@ export default function Privacy() {
           ))}
         </motion.div>
 
-        {/* Footer */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -456,18 +444,28 @@ export default function Privacy() {
         >
           <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-2">
             <Calendar className="w-4 h-4" />
-            <span>Last updated: {new Date().toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
+            <span>Last updated: {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
             })}</span>
           </div>
           <p className="text-gray-500 text-sm">
-            We are committed to protecting your privacy and being transparent about our data practices. 
+            We are committed to protecting your privacy and being transparent about our data practices.
             Your trust is our highest priority.
           </p>
         </motion.div>
       </div>
+
+      <motion.button
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-red-600 to-orange-500 rounded-full shadow-2xl flex items-center justify-center border-2 border-white/20 hover:shadow-red-500/30 transition-all duration-300 group"
+        onClick={() => navigate("/")}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Home className="w-7 h-7 text-white group-hover:scale-110 transition-transform" />
+      
+      </motion.button>
     </div>
   );
 }

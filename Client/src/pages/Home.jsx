@@ -1,13 +1,14 @@
 import React from 'react'
-import Hero from '../components/Hero'
-import HowItWorksSection from '../components/HowItWorksSection'
-import Features from '../components/Features'
-import ProductUse from '../components/ProductUse'
-import Comparision from '../components/Comparision'
-import Pricing from '../components/Pricing'
-import Testimonials from '../components/Testimonials'
-import About from '../components/About'
-import ScreenshotsSection from '../components/Screenshots'
+import Hero from '../components/Home/Hero'
+import HowItWorksSection from '../components/Home/HowItWorksSection'
+import Features from '../components/Home/Features'
+import ProductUse from '../components/Home/ProductUse'
+import Comparision from '../components/Home/Comparision'
+import Pricing from '../components/Home/Pricing'
+import Testimonials from '../components/Home/Testimonials'
+import About from '../components/Home/About'
+import ScreenshotsSection from '../components/Home/Screenshots'
+import Footer from '../components/Footer'
 
 
 const Home = () => {
@@ -17,11 +18,13 @@ const Home = () => {
             <HowItWorksSection />
             <Features />
             <ProductUse />
-            <ScreenshotsSection/>
+            <ScreenshotsSection />
             <Comparision />
             <Pricing />
             <Testimonials />
             <About />
+            <Footer />
+
         </div>
     )
 }

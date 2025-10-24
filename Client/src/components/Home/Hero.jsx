@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Sparkles, Upload, Zap } from 'lucide-react'
-import Sideimage from "../assets/Sideimage.png"
+import Sideimage from "../../assets/Sideimage.png"
 
 const heroVariant = {
   hidden: { opacity: 0, x: -40 },

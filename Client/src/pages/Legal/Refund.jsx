@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  DollarSign, 
-  Clock, 
-  CheckCircle, 
-  XCircle, 
-  Mail, 
+import {
+  DollarSign,
+  Clock,
+  CheckCircle,
+  XCircle,
+  Mail,
   Calendar,
   ChevronDown,
   Shield,
@@ -15,10 +15,14 @@ import {
   Users,
   HelpCircle,
   TrendingUp,
-  AlertTriangle
+  AlertTriangle,
+  Home
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Refund() {
+  const navigate = useNavigate()
   const [openSection, setOpenSection] = useState(null);
 
   const refundSections = [
@@ -228,14 +232,14 @@ export default function Refund() {
             <DollarSign className="w-5 h-5 text-[#00d4ff]" />
             <span className="text-sm font-semibold text-[#00d4ff]">Fair & Transparent</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             <span className="text-white">Refund </span>
             <span className="glow-text bg-gradient-to-r from-[#00d4ff] to-[#8b5cf6] bg-clip-text text-transparent">
               Policy
             </span>
           </h1>
-          
+
           <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8">
             We believe in our service and want you to feel completely confident in your purchase.
           </p>
@@ -286,20 +290,18 @@ export default function Refund() {
                 className="w-full px-8 py-6 text-left flex items-center justify-between group"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${
-                    section.type === 'non-refundable' || section.type === 'chargebacks' 
-                      ? 'bg-red-500/10' 
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${section.type === 'non-refundable' || section.type === 'chargebacks'
+                      ? 'bg-red-500/10'
                       : section.type === 'guarantee'
-                      ? 'bg-green-500/10'
-                      : 'bg-[#00d4ff]/10'
-                  }`}>
-                    <section.icon className={`w-6 h-6 ${
-                      section.type === 'non-refundable' || section.type === 'chargebacks' 
-                        ? 'text-red-400' 
+                        ? 'bg-green-500/10'
+                        : 'bg-[#00d4ff]/10'
+                    }`}>
+                    <section.icon className={`w-6 h-6 ${section.type === 'non-refundable' || section.type === 'chargebacks'
+                        ? 'text-red-400'
                         : section.type === 'guarantee'
-                        ? 'text-green-400'
-                        : 'text-[#00d4ff]'
-                    }`} />
+                          ? 'text-green-400'
+                          : 'text-[#00d4ff]'
+                      }`} />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white group-hover:text-[#00d4ff] transition-colors">
@@ -372,14 +374,12 @@ export default function Refund() {
                           </p>
                           <div className="space-y-3">
                             {section.content.scenarios.map((item, index) => (
-                              <div key={index} className={`flex items-center gap-3 p-3 rounded-lg border ${
-                                item.severity === 'high' 
-                                  ? 'bg-red-500/10 border-red-500/20' 
+                              <div key={index} className={`flex items-center gap-3 p-3 rounded-lg border ${item.severity === 'high'
+                                  ? 'bg-red-500/10 border-red-500/20'
                                   : 'bg-yellow-500/10 border-yellow-500/20'
-                              }`}>
-                                <XCircle className={`w-5 h-5 ${
-                                  item.severity === 'high' ? 'text-red-400' : 'text-yellow-400'
-                                }`} />
+                                }`}>
+                                <XCircle className={`w-5 h-5 ${item.severity === 'high' ? 'text-red-400' : 'text-yellow-400'
+                                  }`} />
                                 <span className="text-gray-300">{item.scenario}</span>
                               </div>
                             ))}
@@ -472,10 +472,10 @@ export default function Refund() {
         >
           <div className="flex items-center justify-center gap-2 text-sm text-gray-400 mb-2">
             <Calendar className="w-4 h-4" />
-            <span>Last updated: {new Date().toLocaleDateString('en-US', { 
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric' 
+            <span>Last updated: {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
             })}</span>
           </div>
           <p className="text-gray-500 text-sm">
@@ -483,6 +483,15 @@ export default function Refund() {
           </p>
         </motion.div>
       </div>
+      <motion.button
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-red-600 to-orange-500 rounded-full shadow-2xl flex items-center justify-center border-2 border-white/20 hover:shadow-red-500/30 transition-all duration-300 group"
+        onClick={() => navigate("/")}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Home className="w-7 h-7 text-white group-hover:scale-110 transition-transform" />
+
+      </motion.button>
     </div>
   );
 }

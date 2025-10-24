@@ -3,10 +3,15 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Footer from './components/Footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Terms from './pages/Term'
-import Privacy from './pages/Privacy'
-import Refund from './pages/Refund'
-import Analytics from './pages/Analytics '
+import Terms from './pages/Legal/Term'
+import Privacy from './pages/Legal/Privacy'
+import Refund from './pages/Legal/Refund'
+import SignUp from './pages/Auth/SignUp'
+import Login from './pages/Auth/Login'
+import Dashboard from './pages/User/Dashboard'
+
+
+
 
 export default function App() {
   return (
@@ -16,11 +21,18 @@ export default function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/analytics" element={<Analytics />} />
             <Route path="/refund" element={<Refund />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
-            {/* 404 Fallback */}
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/userdashboard" element={<Dashboard />} />
+
+
+
+
+
+
             <Route path="*" element={
               <div className="min-h-screen flex items-center justify-center">
                 <div className="text-center">
@@ -35,9 +47,14 @@ export default function App() {
                 </div>
               </div>
             } />
+
+
+
+
+
+
           </Routes>
         </main>
-        <Footer />
       </div>
     </BrowserRouter>
   )

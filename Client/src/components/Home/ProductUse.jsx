@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaDownload, FaCog, FaUpload, FaClock, FaCheckCircle, FaMagic } from "react-icons/fa";
-import InstallImg from "../assets/Install.png"
-import UploadImg from "../assets/Upload.png"
-import ProcessingImg from "../assets/Procecing.png"
-import CompleteImg from "../assets/Complete.png"
-import DownloadImg from "../assets/Download.png"
+import InstallImg from "../../assets/Install.png"
+import UploadImg from "../../assets/Upload.png"
+import ProcessingImg from "../../assets/Procecing.png"
+import CompleteImg from "../../assets/Complete.png"
+import DownloadImg from "../../assets/Download.png"
 
 const steps = [
   {
